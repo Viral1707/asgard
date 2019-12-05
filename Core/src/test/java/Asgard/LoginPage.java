@@ -157,7 +157,7 @@ public class LoginPage extends base {
 		String NewUser1 = (FirstName + " " + LastName);
 		Assert.assertEquals(NewUser, NewUser1);
 		driver.close();
-		dfsdaf
+		
 	}
 
 	@Test(description = "Verify that user is able add competitor", dataProvider = "getData")
