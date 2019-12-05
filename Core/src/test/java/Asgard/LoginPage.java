@@ -100,6 +100,7 @@ public class LoginPage extends base {
 		LP.getUsername().sendKeys(Username);
 		LP.getPassword().sendKeys(Password);
 		LP.getSignIn().click();
+		
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
 		HP.getSettings().click();
