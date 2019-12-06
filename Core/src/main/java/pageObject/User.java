@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 public class User {
 
 	public WebDriver driver;
-
 	public User(WebDriver driver) {
 		this.driver = driver;
 	}
