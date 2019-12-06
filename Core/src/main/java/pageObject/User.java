@@ -9,9 +9,6 @@ import org.openqa.selenium.WebElement;
 public class User {
 
 	public WebDriver driver;
-//Test1234
-
-	//Office
 	public User(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -38,8 +35,8 @@ public class User {
 	By IndiaTime = By.xpath(
 			"//*[@id=\"agencyform\"]/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/div[5]/div[1]/div/mdb-select/mdb-select-dropdown/div/div[2]/ul/li");
 
-	//*[@id="agencyform"]/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/div[5]/div[1]/div/mdb-select/mdb-select-dropdown/div/div[2]/ul/li[91]/span
-	
+	// *[@id="agencyform"]/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/div[5]/div[1]/div/mdb-select/mdb-select-dropdown/div/div[2]/ul/li[91]/span
+
 	public WebElement getUserTab() throws InterruptedException {
 
 		return driver.findElement(UserTab);
@@ -127,7 +124,7 @@ public class User {
 
 		return driver.findElement(TimeList);
 	}
-	
+
 	public WebElement getIndiaTime() throws InterruptedException {
 
 		return driver.findElement(IndiaTime);
