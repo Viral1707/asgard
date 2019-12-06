@@ -11,7 +11,7 @@ public class User {
 	public WebDriver driver;
 	public User(WebDriver driver) {
 		this.driver = driver;
-		//Office
+		
 	}
 
 	By UserTab = By.xpath("//*[@id='mainWrapper']/mdb-navbar[1]//div[2]/links/ul[1]/li[4]/a");
