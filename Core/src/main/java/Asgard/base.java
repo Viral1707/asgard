@@ -19,7 +19,7 @@ public class base {
 		//
 
 		Properties prop = new Properties();
-		FileInputStream fis = new FileInputStream("C:\\Users\\viral.p\\Core\\src\\main\\java\\Asgard\\data.properties");
+		FileInputStream fis = new FileInputStream("D:\\Viral\\Git\\Core\\src\\main\\java\\Asgard\\data.properties");
 		prop.load(fis);
 		String browserName = prop.getProperty("browser");
 
