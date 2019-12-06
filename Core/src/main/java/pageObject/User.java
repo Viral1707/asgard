@@ -12,7 +12,7 @@ public class User {
 	public User(WebDriver driver) {
 		this.driver = driver;
 	}
-//Home-Commit
+
 	By UserTab = By.xpath("//*[@id='mainWrapper']/mdb-navbar[1]//div[2]/links/ul[1]/li[4]/a");
 	By addUser = By.xpath("//*[@id='sidebar-wrapper']/ul/li[1]/a");
 	By newUsername = By.xpath("//*[@id=\'username\']");
