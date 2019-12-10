@@ -275,6 +275,7 @@ public class LoginPage extends base {
 		return data;
 		//Test
 		//New Test
+		//Delete
 	}
 
 }
