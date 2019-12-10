@@ -5,13 +5,7 @@
     <classes>
       <class name="Asgard.LoginPage">
         <methods>
-          <include name="Login" invocation-numbers="0"/>
-          <include name="CreateProfile" invocation-numbers="0"/>
-          <include name="AddCompetitor" invocation-numbers="0"/>
-          <include name="CreateBusiness" invocation-numbers="0"/>
-          <include name="EditProfile" invocation-numbers="0"/>
           <include name="CreateUser" invocation-numbers="0"/>
-          <include name="Logout" invocation-numbers="0"/>
         </methods>
       </class> <!-- Asgard.LoginPage -->
     </classes>
