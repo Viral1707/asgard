@@ -74,7 +74,7 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		HP.getstgHp().click();
+		//HP.getstgHp().click();
 		Thread.sleep(5000);
 		Business Business = new Business(driver);
 		Business.getBusinessTab().click();
@@ -105,7 +105,7 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		HP.getstgHp().click();
+		//HP.getstgHp().click();
 		Thread.sleep(5000);
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
@@ -135,7 +135,7 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		HP.getstgHp().click();
+		//HP.getstgHp().click();
 		Thread.sleep(5000);
 		User User = new User(driver);
 		User.getUserTab().click();
@@ -175,7 +175,7 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		HP.getstgHp().click();
+		//HP.getstgHp().click();
 		Thread.sleep(5000);
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
@@ -232,7 +232,7 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		HP.getstgHp().click();
+		//HP.getstgHp().click();
 		Thread.sleep(5000);
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
@@ -265,10 +265,10 @@ public class LoginPage extends base {
 		data[0][2] = "https://u-asgard.azurewebsites.net/account/login";
 		data[0][3] = "https://u-asgard.azurewebsites.net/dashboard";
 		data[0][4] = "New Business";
-		data[0][5] = "14569877";
+		data[0][5] = "14569881";
 		data[0][6] = "New Hotel Los Gatos";
 		data[0][7] = "Auto";
-		data[0][8] = "mno@gmail.com";
+		data[0][8] = "qrs@gmail.com";
 		data[0][9] = "AutoFN";
 		data[0][10] = "AutoLN";
 		data[0][11] = "Accounting";
