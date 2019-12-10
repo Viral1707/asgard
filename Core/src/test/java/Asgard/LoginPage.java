@@ -273,12 +273,7 @@ public class LoginPage extends base {
 		data[0][10] = "AutoLN";
 		data[0][11] = "Accounting";
 		return data;
-		//Test
-		//New Test
-
-		//Delete
-
-		//NoDelete
+		
 
 	}
 
