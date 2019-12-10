@@ -275,7 +275,11 @@ public class LoginPage extends base {
 		return data;
 		//Test
 		//New Test
+<<<<<<< HEAD
 		//Delete
+=======
+		//NoDelete
+>>>>>>> refs/heads/Office_Hours
 	}
 
 }
