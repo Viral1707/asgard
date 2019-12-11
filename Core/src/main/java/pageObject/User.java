@@ -36,6 +36,10 @@ public class User {
 	By IndiaTime = By.xpath(
 			"//*[@id=\"agencyform\"]/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/div[5]/div[1]/div/mdb-select/mdb-select-dropdown/div/div[2]/ul/li");
 
+	By SearchUser = By.xpath("//*[@id='sidebar-wrapper']/ul/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/ul/li[1]/div/input");
+	By UserOptions = By.xpath("//*[@id='sidebar-wrapper']/ul/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/ul/li[2]/ul/li/a/span");
+	By EditUserBtn = By.xpath("//*[@id='page-content-wrapper']/div/div[1]/div[2]/a");
+	
 	// *[@id="agencyform"]/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/div[5]/div[1]/div/mdb-select/mdb-select-dropdown/div/div[2]/ul/li[91]/span
 
 	public WebElement getUserTab() throws InterruptedException {
@@ -142,6 +146,39 @@ public class User {
 		Thread.sleep(5000);
 		for (WebElement element : getTimeOptionList()) {
 			if (Value.contains(element.getText())) {
+				element.click();
+				break;
+			}
+
+		}
+
+	}
+	
+	public WebElement getEditUserBtn() throws InterruptedException {
+
+		return driver.findElement(EditUserBtn);
+	}
+	
+	public WebElement getSearchUser() throws InterruptedException {
+
+		return driver.findElement(SearchUser);
+	}
+
+	public List<WebElement> getUserOptions() throws InterruptedException {
+
+		return driver.findElements(UserOptions);
+	}
+
+	public void selectUser(String Value) throws InterruptedException {
+
+		Thread.sleep(5000);
+		getSearchUser().click();
+		Thread.sleep(5000);
+		getSearchUser().sendKeys("Test Name");
+		Thread.sleep(10000);
+
+		for (WebElement element : getUserOptions()) {
+			if (element.getText().contains(Value)) {
 				element.click();
 				break;
 			}

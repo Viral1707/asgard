@@ -171,12 +171,26 @@ public class ProfileComp {
 
 	}
 
+	By checkboxComp = By.xpath(
+			"//*[@id='basic-info']/mdb-tabset/div/div/div[2]/div/mdb-tab[4]/mim-asgard-settings/mdb-tabset/div/div/div[2]/div/mdb-tab[4]/app-competitors/div/div[1]/div[3]/div/div/table/tbody/tr/td[1]/div/label");
+
+	public WebElement getcheckboxComp() throws InterruptedException {
+
+		return driver.findElement(checkboxComp);
+	}
+	
+	By deleteComp = By.xpath(
+			"//*[@id='basic-info']/mdb-tabset/div/div/div[2]/div/mdb-tab[4]/mim-asgard-settings/mdb-tabset/div/div/div[2]/div/mdb-tab[4]/app-competitors/div/div[1]/div[2]/div[1]");
+
+	public WebElement getdeleteComp() throws InterruptedException {
+
+		return driver.findElement(deleteComp);
+	}
+
 	public String getComp() {
 
 		return null;
 
 	}
-
-	// *[@id='basic-info']/mdb-tabset/div/div/div[2]/div/mdb-tab[4]/mim-asgard-settings/mdb-tabset/div/div/div[2]/div/mdb-tab[4]/app-competitors/div/div[1]/div[3]/div/div/table/tbody/tr
 
 }

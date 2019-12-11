@@ -12,9 +12,9 @@ public class HomePg {
 		this.driver = driver;
 	}
 	
-	By UserSet = By.xpath("//*[@id='mainWrapper']/mdb-navbar[1]/nav/div/div[2]/links/ul[2]/li[4]/a");
-	By Settings = By.xpath("//*[@id='mainWrapper']/mdb-navbar[1]/nav/div/div[2]/links/ul[2]/li[5]/a/i");
-	By Logout = By.xpath("//*[@id='mainWrapper']/mdb-navbar[1]/nav/div/div[2]/links/ul[2]/li[4]/div/a[4]");
+	By UserSet = By.xpath("//*[@id='mainWrapper']/mdb-navbar[1]/nav/div/div[2]/links/ul[2]/li[3]/a");
+	By Settings = By.xpath("//*[@id=\"mainWrapper\"]/mdb-navbar[1]/nav/div/div[2]/links/ul[2]/li[4]/a");
+	By Logout = By.xpath("//*[@id=\'mainWrapper\']/mdb-navbar[1]/nav/div/div[2]/links/ul[2]/li[3]/div/a[4]");
 	By StgHp = By.xpath("//*[@id='mainWrapper']//li[4]/div/a");
 	
 	
