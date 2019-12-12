@@ -5,7 +5,7 @@
     <classes>
       <class name="Asgard.LoginPage">
         <methods>
-          <include name="GEditProfile" invocation-numbers="0"/>
+          <include name="IAddCompetitor" invocation-numbers="0"/>
         </methods>
       </class> <!-- Asgard.LoginPage -->
     </classes>

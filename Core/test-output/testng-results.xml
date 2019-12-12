@@ -2,12 +2,12 @@
 <testng-results ignored="9" total="10" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-12-11T13:25:10Z" name="Default suite" finished-at="2019-12-11T13:26:36Z" duration-ms="85964">
+  <suite started-at="2019-12-12T14:12:36Z" name="Default suite" finished-at="2019-12-12T14:13:17Z" duration-ms="40585">
     <groups>
     </groups>
-    <test started-at="2019-12-11T13:25:10Z" name="Default test" finished-at="2019-12-11T13:26:36Z" duration-ms="85964">
+    <test started-at="2019-12-12T14:12:36Z" name="Default test" finished-at="2019-12-12T14:13:17Z" duration-ms="40585">
       <class name="Asgard.LoginPage">
-        <test-method signature="GEditProfile(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Asgard.LoginPage@6b419da]" started-at="2019-12-11T13:25:10Z" name="GEditProfile" description="Verify that user is able to edit profile" data-provider="getData" finished-at="2019-12-11T13:26:36Z" duration-ms="85926" status="PASS">
+        <test-method signature="ALogin(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:Asgard.LoginPage@6b419da]" started-at="2019-12-12T14:12:36Z" name="ALogin" description="Verify that user is able to login to Asgard with valid credentials" data-provider="getData" finished-at="2019-12-12T14:13:17Z" duration-ms="40565" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -72,7 +72,7 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- GEditProfile -->
+        </test-method> <!-- ALogin -->
       </class> <!-- Asgard.LoginPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

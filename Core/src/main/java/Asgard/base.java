@@ -14,11 +14,11 @@ public class base {
 	
 
 	public WebDriver driver;
-
+	public Properties prop;
 	public WebDriver initializeDriver() throws IOException {
 		//Test
 
-		Properties prop = new Properties();
+		prop = new Properties();
 		FileInputStream fis = new FileInputStream("D:\\Viral\\Automation\\asgard\\Core\\src\\main\\java\\Asgard\\data.properties");
 		prop.load(fis);
 		String browserName = prop.getProperty("browser");

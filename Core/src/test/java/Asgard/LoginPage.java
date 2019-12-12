@@ -17,8 +17,8 @@ import pageObject.ProfileComp;
 import pageObject.User;
 
 public class LoginPage extends base {
-	
-	//Work from home
+
+	// Work from home
 
 	@Test(description = "Verify that user is able to login to Asgard with valid credentials", dataProvider = "getData")
 	public void ALogin(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
@@ -26,14 +26,15 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
+		Thread.sleep(3000);
 		LP.getSignIn().click();
 		Thread.sleep(10000);
 		String actual = driver.getCurrentUrl(); //
-		Assert.assertEquals(HomepageUrl, actual);
+		Assert.assertEquals(prop.getProperty("homepageUrl"), actual);
 		driver.close();
 	}
 
@@ -43,10 +44,10 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
 		LP.getSignIn().click();
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
@@ -57,7 +58,7 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		String actual = driver.getCurrentUrl();
 		System.out.println(actual);
-		Assert.assertEquals(URL, LoginURL);
+		Assert.assertEquals(prop.getProperty("url"), LoginURL);
 		driver.close();
 	}
 
@@ -67,10 +68,10 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
 		LP.getSignIn().click();
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
@@ -81,13 +82,15 @@ public class LoginPage extends base {
 		Business Business = new Business(driver);
 		Business.getBusinessTab().click();
 		Business.getaddBusiness().click();
-		Business.getBusinessName().sendKeys(BusinessName);
-		Business.getAlias().sendKeys(Alias);
+		Thread.sleep(3000);
+		
+		Business.getBusinessName().sendKeys(prop.getProperty("businessName"));
+		Business.getAlias().sendKeys(prop.getProperty("businessAlias"));
 		Thread.sleep(5000);
 		Business.getSaveBusiness().click();
 		Thread.sleep(5000);
 		String NewBusiness = Business.getNewBusiness().getText();
-		Assert.assertEquals(NewBusiness, BusinessName);
+		Assert.assertEquals(prop.getProperty("businessName"), BusinessName);
 		driver.close();
 	}
 
@@ -97,10 +100,10 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
 		LP.getSignIn().click();
 
 		HomePg HP = new HomePg(driver);
@@ -112,13 +115,13 @@ public class LoginPage extends base {
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
 		Profile.getaddProfile().click();
-		Profile.getOBusinessName().sendKeys(ProfileName);
-		Profile.selectindustry("Auto");
+		Profile.getOBusinessName().sendKeys(prop.getProperty("profileName"));
+		Profile.selectindustry(prop.getProperty("industry"));
 		Thread.sleep(3000);
 		Profile.getSaveProfile().click();
 		Thread.sleep(5000);
 		String NewProfile = Profile.getNewProfile().getText();
-		Assert.assertEquals(NewProfile, ProfileName);
+		Assert.assertEquals(prop.getProperty("profileName"), ProfileName);
 		driver.close();
 	}
 
@@ -128,10 +131,10 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
 		LP.getSignIn().click();
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
@@ -144,9 +147,9 @@ public class LoginPage extends base {
 		User.getaddUser().click();
 		User.selectBusiness("200 Main");
 		Thread.sleep(10000);
-		User.getnewUsername().sendKeys(Username1);
-		User.getfirstName().sendKeys(FirstName);
-		User.getlastName().sendKeys(LastName);
+		User.getnewUsername().sendKeys(prop.getProperty("username1"));
+		User.getfirstName().sendKeys(prop.getProperty("firstName"));
+		User.getlastName().sendKeys(prop.getProperty("lastName"));
 
 		User.getTimeList().click();
 		Thread.sleep(5000);
@@ -156,7 +159,7 @@ public class LoginPage extends base {
 		User.getSaveBtn().click();
 		Thread.sleep(5000);
 		String NewUser = User.getNewUser().getText();
-		String NewUser1 = (FirstName + " " + LastName);
+		String NewUser1 = (prop.getProperty("firstName") + " " + prop.getProperty("lastName"));
 		Assert.assertEquals(NewUser, NewUser1);
 		driver.close();
 
@@ -168,10 +171,10 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
 		LP.getSignIn().click();
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
@@ -193,25 +196,25 @@ public class LoginPage extends base {
 		ProfileComp ProfileC = new ProfileComp(driver);
 		ProfileC.getAddCompetitor().click();
 		Thread.sleep(2000);
-		ProfileC.getCompName().sendKeys("ATestComp1");
+		ProfileC.getCompName().sendKeys(prop.getProperty("compName"));
 		Thread.sleep(2000);
-		ProfileC.getCompDomain().sendKeys("http://www.testcomp.com");
+		ProfileC.getCompDomain().sendKeys(prop.getProperty("compUrl"));
 		Thread.sleep(2000);
-		ProfileC.getCompStreet1().sendKeys("Test Street 1");
+		ProfileC.getCompStreet1().sendKeys(prop.getProperty("address1"));
 		Thread.sleep(2000);
-		ProfileC.selectCompCountry("United States");
+		ProfileC.selectCompCountry(prop.getProperty("address2"));
 		Thread.sleep(5000);
-		ProfileC.selectCompState("California");
+		ProfileC.selectCompState(prop.getProperty("state"));
 		Thread.sleep(2000);
-		ProfileC.getCompCity().sendKeys("TestCity");
+		ProfileC.getCompCity().sendKeys(prop.getProperty("city"));
 		Thread.sleep(2000);
-		ProfileC.getCompPostCode().sendKeys("159863");
+		ProfileC.getCompPostCode().sendKeys(prop.getProperty("zipCode"));
 		Thread.sleep(2000);
-		ProfileC.getCompPhone().sendKeys("9655478142");
+		ProfileC.getCompPhone().sendKeys(prop.getProperty("phoneNo"));
 		Thread.sleep(2000);
 		ProfileC.getCompSave().click();
 		Thread.sleep(4000);
-		ProfileC.assertNewComp("ATestComp1");
+		ProfileC.assertNewComp(prop.getProperty("compName"));
 
 		driver.close();
 
@@ -223,10 +226,10 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
 		LP.getSignIn().click();
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
@@ -237,20 +240,20 @@ public class LoginPage extends base {
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
 		// Profile.getaddProfile().click();
-		Profile.selectProfile("Hotel Los Gatos");
+		Profile.selectProfile(prop.getProperty("selProfile"));
 		Thread.sleep(5000);
 		Profile.geteditProfile().click();
 		Profile.getOBusinessName().clear();
 		Thread.sleep(2000);
-		Profile.getOBusinessName().sendKeys(ProfileName);
-		Profile.selectindustry("Auto");
+		Profile.getOBusinessName().sendKeys(prop.getProperty("profileName"));
+		Profile.selectindustry(prop.getProperty("industry"));
 		Thread.sleep(3000);
 		Profile.getSaveProfile().click();
 		Thread.sleep(5000);
 		String NewProfile = Profile.getNewProfile().getText();
 		Thread.sleep(2000);
 		// Assert.assertEquals(NewProfile, ProfileName);
-		assertTrue(NewProfile.contains(ProfileName));
+		assertTrue(NewProfile.contains(prop.getProperty("profileName")));
 		driver.close();
 	}
 
@@ -260,41 +263,39 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
 		LP.getSignIn().click();
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		// HP.getstgHp().click();
+		
 		Thread.sleep(5000);
 		User User = new User(driver);
 		User.getUserTab().click();
-		//User.getaddUser().click();
 		
-		User.selectUser("Test Name");
-		//User.selectBusiness("200 Main");
+
+		User.selectUser(prop.getProperty("selUser"));
+		
 		Thread.sleep(10000);
-		//User.getnewUsername().sendKeys(Username1);
 		
+
 		User.getEditUserBtn().click();
 		Thread.sleep(5000);
 		User.getfirstName().clear();
 		Thread.sleep(5000);
-		User.getfirstName().sendKeys("Test");
+		User.getfirstName().sendKeys(prop.getProperty("userFN"));
 		Thread.sleep(5000);
 		User.getlastName().clear();
 		Thread.sleep(5000);
-		User.getlastName().sendKeys("Name");
+		User.getlastName().sendKeys(prop.getProperty("userLN"));
 
-		//User.getTimeList().click();
+		
 		Thread.sleep(5000);
-		//User.getIndiaTime().click();
-		//User.selectRole(Role);
-		// User.selectTimezone("(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi");
+		
 		User.getSaveBtn().click();
 		Thread.sleep(5000);
 		String NewUser = User.getNewUser().getText();
@@ -312,35 +313,35 @@ public class LoginPage extends base {
 		driver.manage().window().maximize();
 		driver.get(URL);
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
 		LP.getSignIn().click();
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		// HP.getstgHp().click();
+		
 		Thread.sleep(5000);
 		Business Business = new Business(driver);
 		Business.getBusinessTab().click();
-		Business.selectBusiness("New Business");
-		// Business.getaddBusiness().click();
+		Business.selectBusiness(prop.getProperty("businessName"));
+		
 
 		Thread.sleep(5000);
 		Business.getEditBusinesBtn().click();
 		Thread.sleep(4000);
 		Business.getBusinessName().clear();
 		Thread.sleep(2000);
-		Business.getBusinessName().sendKeys("New Business");
-		//Business.getAlias().sendKeys(Alias);
+		Business.getBusinessName().sendKeys(prop.getProperty("businessName"));
+		
 		Thread.sleep(5000);
 		Business.getSaveBusiness().click();
 		Thread.sleep(5000);
 		String NewBusiness = Business.getNewBusiness().getText();
-		Assert.assertEquals(NewBusiness, "New Business");
+		Assert.assertEquals(NewBusiness, prop.getProperty("businessName"));
 		driver.close();
 	}
-	
+
 	@Test(description = "Verify that user is able to delete competitor", dataProvider = "getData")
 	public void JDeleteCompetitor(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
@@ -349,8 +350,8 @@ public class LoginPage extends base {
 		driver.manage().window().maximize();
 		driver.get(URL);
 		LoginPg LP = new LoginPg(driver);
-		LP.getUsername().sendKeys(Username);
-		LP.getPassword().sendKeys(Password);
+		LP.getUsername().sendKeys(prop.getProperty("username"));
+		LP.getPassword().sendKeys(prop.getProperty("password"));
 		LP.getSignIn().click();
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
@@ -361,7 +362,7 @@ public class LoginPage extends base {
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
 		Thread.sleep(5000);
-		Profile.selectProfile("New Hotel Los Gatos");
+		Profile.selectProfile(prop.getProperty("profileName"));
 		Thread.sleep(5000);
 		Profile.geteditProfile().click();
 		Thread.sleep(2000);
@@ -374,7 +375,7 @@ public class LoginPage extends base {
 		ProfileC.getcheckboxComp().click();
 		Thread.sleep(3000);
 		ProfileC.getdeleteComp().click();
-		
+
 		Thread.sleep(4000);
 //		ProfileC.assertNewComp("ATestComp1");
 
