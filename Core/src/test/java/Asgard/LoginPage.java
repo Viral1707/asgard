@@ -83,14 +83,14 @@ public class LoginPage extends base {
 		Business.getBusinessTab().click();
 		Business.getaddBusiness().click();
 		Thread.sleep(3000);
-		
+
 		Business.getBusinessName().sendKeys(prop.getProperty("businessName"));
 		Business.getAlias().sendKeys(prop.getProperty("businessAlias"));
 		Thread.sleep(5000);
 		Business.getSaveBusiness().click();
 		Thread.sleep(5000);
 		String NewBusiness = Business.getNewBusiness().getText();
-		Assert.assertEquals(prop.getProperty("businessName"), BusinessName);
+		Assert.assertEquals(NewBusiness, prop.getProperty("businessName"));
 		driver.close();
 	}
 
@@ -110,8 +110,6 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		// HP.getstgHp().click();
-		Thread.sleep(5000);
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
 		Profile.getaddProfile().click();
@@ -121,7 +119,7 @@ public class LoginPage extends base {
 		Profile.getSaveProfile().click();
 		Thread.sleep(5000);
 		String NewProfile = Profile.getNewProfile().getText();
-		Assert.assertEquals(prop.getProperty("profileName"), ProfileName);
+		Assert.assertEquals(NewProfile, prop.getProperty("profileName"));
 		driver.close();
 	}
 
@@ -140,12 +138,10 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		// HP.getstgHp().click();
-		Thread.sleep(5000);
 		User User = new User(driver);
 		User.getUserTab().click();
 		User.getaddUser().click();
-		User.selectBusiness("200 Main");
+		User.selectBusiness(prop.getProperty("userBusiness"));
 		Thread.sleep(10000);
 		User.getnewUsername().sendKeys(prop.getProperty("username1"));
 		User.getfirstName().sendKeys(prop.getProperty("firstName"));
@@ -155,7 +151,6 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		User.getIndiaTime().click();
 		User.selectRole(Role);
-		// User.selectTimezone("(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi");
 		User.getSaveBtn().click();
 		Thread.sleep(5000);
 		String NewUser = User.getNewUser().getText();
@@ -180,12 +175,10 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		// HP.getstgHp().click();
-		Thread.sleep(5000);
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
 		Thread.sleep(5000);
-		Profile.selectProfile("Hotel Los Gatos");
+		Profile.selectProfile(prop.getProperty("selProfile"));
 		Thread.sleep(5000);
 		Profile.geteditProfile().click();
 		Thread.sleep(2000);
@@ -235,11 +228,8 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		// HP.getstgHp().click();
-		Thread.sleep(5000);
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
-		// Profile.getaddProfile().click();
 		Profile.selectProfile(prop.getProperty("selProfile"));
 		Thread.sleep(5000);
 		Profile.geteditProfile().click();
@@ -252,7 +242,6 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		String NewProfile = Profile.getNewProfile().getText();
 		Thread.sleep(2000);
-		// Assert.assertEquals(NewProfile, ProfileName);
 		assertTrue(NewProfile.contains(prop.getProperty("profileName")));
 		driver.close();
 	}
@@ -272,17 +261,10 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		
-		Thread.sleep(5000);
 		User User = new User(driver);
 		User.getUserTab().click();
-		
-
 		User.selectUser(prop.getProperty("selUser"));
-		
 		Thread.sleep(10000);
-		
-
 		User.getEditUserBtn().click();
 		Thread.sleep(5000);
 		User.getfirstName().clear();
@@ -292,10 +274,7 @@ public class LoginPage extends base {
 		User.getlastName().clear();
 		Thread.sleep(5000);
 		User.getlastName().sendKeys(prop.getProperty("userLN"));
-
-		
 		Thread.sleep(5000);
-		
 		User.getSaveBtn().click();
 		Thread.sleep(5000);
 		String NewUser = User.getNewUser().getText();
@@ -311,7 +290,7 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -320,20 +299,15 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		HP.getSettings().click();
 		Thread.sleep(5000);
-		
-		Thread.sleep(5000);
 		Business Business = new Business(driver);
 		Business.getBusinessTab().click();
 		Business.selectBusiness(prop.getProperty("businessName"));
-		
-
 		Thread.sleep(5000);
 		Business.getEditBusinesBtn().click();
 		Thread.sleep(4000);
 		Business.getBusinessName().clear();
 		Thread.sleep(2000);
 		Business.getBusinessName().sendKeys(prop.getProperty("businessName"));
-		
 		Thread.sleep(5000);
 		Business.getSaveBusiness().click();
 		Thread.sleep(5000);
@@ -348,7 +322,7 @@ public class LoginPage extends base {
 			String Role) throws IOException, InterruptedException {
 		driver = initializeDriver();
 		driver.manage().window().maximize();
-		driver.get(URL);
+		driver.get(prop.getProperty("url"));
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -356,8 +330,6 @@ public class LoginPage extends base {
 		HomePg HP = new HomePg(driver);
 		Thread.sleep(5000);
 		HP.getSettings().click();
-		Thread.sleep(5000);
-		// HP.getstgHp().click();
 		Thread.sleep(5000);
 		Profile Profile = new Profile(driver);
 		Profile.getProfileTab().click();
@@ -370,15 +342,11 @@ public class LoginPage extends base {
 		Thread.sleep(2000);
 		Profile.getProfileCompetitor().click();
 		Thread.sleep(5000);
-
 		ProfileComp ProfileC = new ProfileComp(driver);
 		ProfileC.getcheckboxComp().click();
 		Thread.sleep(3000);
 		ProfileC.getdeleteComp().click();
-
 		Thread.sleep(4000);
-//		ProfileC.assertNewComp("ATestComp1");
-
 		driver.close();
 
 	}

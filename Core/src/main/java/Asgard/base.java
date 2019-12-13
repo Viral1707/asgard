@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class base {
 	
@@ -19,13 +20,17 @@ public class base {
 		//Test
 
 		prop = new Properties();
-		FileInputStream fis = new FileInputStream("D:\\Viral\\Automation\\asgard\\Core\\src\\main\\java\\Asgard\\data.properties");
+		FileInputStream fis = new FileInputStream("C:\\Users\\Viral\\git\\asgard\\Core\\src\\main\\java\\Asgard\\data.properties");
 		prop.load(fis);
 		String browserName = prop.getProperty("browser");
 
 		if (browserName.equals("chrome")) {
 
-			System.setProperty("webdriver.chrome.driver", "D:\\chromedriver\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "C:\\Vir@l's Data\\Study\\ChromeDriver\\chromedriver.exe");
+			ChromeOptions o = new ChromeOptions();
+			o.addArguments("disable-extensions");
+			o.addArguments("--start-maximized");
+			
 			driver = new ChromeDriver();
 
 		}
