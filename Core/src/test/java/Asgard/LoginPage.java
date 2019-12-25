@@ -383,7 +383,7 @@ public class LoginPage extends base {
 		return data;
 
 	}
-	
+	/*
 	@BeforeTest
 	public void Initialize() throws IOException
 	{
@@ -398,6 +398,6 @@ public class LoginPage extends base {
 		Thread.sleep(4000);
 		driver.close();
 	}
-	
+	*/
 
 }
