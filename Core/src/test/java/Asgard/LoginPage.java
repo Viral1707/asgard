@@ -5,6 +5,8 @@ import static org.testng.Assert.assertTrue;
 import java.io.IOException;
 
 import org.openqa.selenium.Keys;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -24,9 +26,7 @@ public class LoginPage extends base {
 	public void ALogin(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+		
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -35,16 +35,14 @@ public class LoginPage extends base {
 		Thread.sleep(10000);
 		String actual = driver.getCurrentUrl(); //
 		Assert.assertEquals(prop.getProperty("homepageUrl"), actual);
-		driver.close();
+	
 	}
 
 	@Test(description = "Verify that user is able to Logout correctly", dataProvider = "getData")
 	public void BLogout(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+		
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -59,16 +57,14 @@ public class LoginPage extends base {
 		String actual = driver.getCurrentUrl();
 		System.out.println(actual);
 		Assert.assertEquals(prop.getProperty("url"), LoginURL);
-		driver.close();
+		
 	}
 
 	@Test(description = "Verify that user is able to create business", dataProvider = "getData")
 	public void CCreateBusiness(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -91,16 +87,14 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		String NewBusiness = Business.getNewBusiness().getText();
 		Assert.assertEquals(NewBusiness, prop.getProperty("businessName"));
-		driver.close();
+		
 	}
 
 	@Test(description = "Verify that user is able to create profile", dataProvider = "getData")
 	public void DCreateProfile(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+		
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -120,16 +114,14 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		String NewProfile = Profile.getNewProfile().getText();
 		Assert.assertEquals(NewProfile, prop.getProperty("profileName"));
-		driver.close();
+		
 	}
 
 	@Test(description = "Verify that user is able to create user", dataProvider = "getData")
 	public void ECreateUser(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+		
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -156,7 +148,7 @@ public class LoginPage extends base {
 		String NewUser = User.getNewUser().getText();
 		String NewUser1 = (prop.getProperty("firstName") + " " + prop.getProperty("lastName"));
 		Assert.assertEquals(NewUser, NewUser1);
-		driver.close();
+		
 
 	}
 
@@ -164,9 +156,7 @@ public class LoginPage extends base {
 	public void IAddCompetitor(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+		
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -209,7 +199,7 @@ public class LoginPage extends base {
 		Thread.sleep(4000);
 		ProfileC.assertNewComp(prop.getProperty("compName"));
 
-		driver.close();
+		
 
 	}
 
@@ -217,9 +207,7 @@ public class LoginPage extends base {
 	public void GEditProfile(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+		
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -243,16 +231,14 @@ public class LoginPage extends base {
 		String NewProfile = Profile.getNewProfile().getText();
 		Thread.sleep(2000);
 		assertTrue(NewProfile.contains(prop.getProperty("profileName")));
-		driver.close();
+		
 	}
 
 	@Test(description = "Verify that user is able to edit user", dataProvider = "getData")
 	public void HEditUser(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+	
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -280,7 +266,7 @@ public class LoginPage extends base {
 		String NewUser = User.getNewUser().getText();
 		String NewUser1 = "Test Name";
 		Assert.assertEquals(NewUser, NewUser1);
-		driver.close();
+		
 
 	}
 
@@ -288,9 +274,7 @@ public class LoginPage extends base {
 	public void FEditBusiness(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+		
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -313,16 +297,14 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		String NewBusiness = Business.getNewBusiness().getText();
 		Assert.assertEquals(NewBusiness, prop.getProperty("businessName"));
-		driver.close();
+		
 	}
 
 	@Test(description = "Verify that user is able to delete competitor", dataProvider = "getData")
 	public void JDeleteCompetitor(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
 			String Alias, String ProfileName, String IndustryName, String Username1, String FirstName, String LastName,
 			String Role) throws IOException, InterruptedException {
-		driver = initializeDriver();
-		driver.manage().window().maximize();
-		driver.get(prop.getProperty("url"));
+		
 		LoginPg LP = new LoginPg(driver);
 		LP.getUsername().sendKeys(prop.getProperty("username"));
 		LP.getPassword().sendKeys(prop.getProperty("password"));
@@ -346,8 +328,7 @@ public class LoginPage extends base {
 		ProfileC.getcheckboxComp().click();
 		Thread.sleep(3000);
 		ProfileC.getdeleteComp().click();
-		Thread.sleep(4000);
-		driver.close();
+		
 
 	}
 
@@ -362,15 +343,31 @@ public class LoginPage extends base {
 		data[0][2] = "https://u-asgard.azurewebsites.net/account/login";
 		data[0][3] = "https://u-asgard.azurewebsites.net/dashboard";
 		data[0][4] = "New Business";
-		data[0][5] = "14569883";
+		data[0][5] = "14569884";
 		data[0][6] = "New Hotel Los Gatos";
 		data[0][7] = "Auto";
-		data[0][8] = "stu@gmail.com";
+		data[0][8] = "tuv@gmail.com";
 		data[0][9] = "AutoFN";
 		data[0][10] = "AutoLN";
 		data[0][11] = "Accounting";
 		return data;
 
 	}
+	
+	@BeforeTest
+	public void Initialize() throws IOException
+	{
+		driver = initializeDriver();
+		driver.manage().window().maximize();
+		driver.get(prop.getProperty("url"));
+	}
+	
+	@AfterTest
+	public void TearDown() throws InterruptedException
+	{
+		Thread.sleep(4000);
+		driver.close();
+	}
+	
 
 }
