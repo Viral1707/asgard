@@ -20,7 +20,7 @@ import pageObject.User;
 
 public class LoginPage extends base {
 
-	// Work from home
+
 
 	@Test(description = "Verify that user is able to login to Asgard with valid credentials", dataProvider = "getData")
 	public void ALogin(String Username, String Password, String URL, String HomepageUrl, String BusinessName,
