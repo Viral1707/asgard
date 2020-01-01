@@ -5,10 +5,7 @@
     <classes>
       <class name="Asgard.LoginPage">
         <methods>
-          <include name="IAddCompetitor" invocation-numbers="0"/>
-          <include name="ECreateUser" invocation-numbers="0"/>
-          <include name="HEditUser" invocation-numbers="0"/>
-          <include name="JDeleteCompetitor" invocation-numbers="0"/>
+          <include name="BLogout" invocation-numbers="0"/>
         </methods>
       </class> <!-- Asgard.LoginPage -->
     </classes>
