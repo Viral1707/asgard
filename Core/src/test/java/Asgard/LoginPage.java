@@ -157,7 +157,7 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		User.getIndiaTime().click();
 		User.selectRole(Role);
-		User.getSaveBtn().click();
+		User.getSaveNInviteBtn().click();
 		Thread.sleep(5000);
 		String NewUser = User.getNewUser().getText();
 		String NewUser1 = (prop.getProperty("firstName") + " " + prop.getProperty("lastName"));
@@ -284,7 +284,7 @@ public class LoginPage extends base {
 		Thread.sleep(5000);
 		User.getlastName().sendKeys(prop.getProperty("userLN"));
 		Thread.sleep(5000);
-		User.getSaveBtn().click();
+		User.getSaveNInviteBtn().click();
 		Thread.sleep(5000);
 		String NewUser = User.getNewUser().getText();
 		String NewUser1 = "Test Name";
@@ -373,7 +373,7 @@ public class LoginPage extends base {
 		data[0][2] = "https://u-asgard.azurewebsites.net/account/login";
 		data[0][3] = "https://u-asgard.azurewebsites.net/dashboard";
 		data[0][4] = "New Business";
-		data[0][5] = "14569885";
+		data[0][5] = "14569886";
 		data[0][6] = "New Hotel Los Gatos";
 		data[0][7] = "Auto";
 		data[0][8] = "uvw@gmail.com";

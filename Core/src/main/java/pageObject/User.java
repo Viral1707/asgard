@@ -26,7 +26,7 @@ public class User {
 	By RoleList = By.xpath("//*[@id='agencyform']//*[@formcontrolname='inputRolelist']");
 	By RoleOptionList = By
 			.xpath("//*[@id='agencyform']//*[@formcontrolname='inputRolelist']//*[@class='options']//span ");
-	By SaveBtn = By.xpath("//*[@id=\'agencyform\']/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/div[1]/div/a[2]");
+	By SaveNInviteBtn = By.xpath("//*[@id='agencyform']/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/div[1]/div/div/a");
 	By NewUser = By.xpath("//*[@id=\'page-content-wrapper\']/div/div[1]/div[1]/h4");
 	By TimeList = By.xpath(
 			"//*[@id='agencyform']/mdb-tabset/div/div/div[2]/div/mdb-tab[1]/div[5]/div[1]/div/mdb-select/div/div");
@@ -87,9 +87,9 @@ public class User {
 		return driver.findElements(RoleOptionList);
 	}
 
-	public WebElement getSaveBtn() throws InterruptedException {
+	public WebElement getSaveNInviteBtn() throws InterruptedException {
 
-		return driver.findElement(SaveBtn);
+		return driver.findElement(SaveNInviteBtn);
 	}
 
 	public WebElement getNewUser() throws InterruptedException {
