@@ -5,7 +5,7 @@
     <classes>
       <class name="Asgard.LoginPage">
         <methods>
-          <include name="BLogout" invocation-numbers="0"/>
+          <include name="ECreateUser" invocation-numbers="0"/>
         </methods>
       </class> <!-- Asgard.LoginPage -->
     </classes>
